@@ -1,0 +1,5 @@
+<%= turbo_stream.append :messages, partial: "message", locals: { message: "> " + command.command } %>
+
+<%= turbo_stream.append :messages, partial: command.partial, locals: command.locals %>
+
+<%= turbo_stream.replace :command, partial: "command" %>

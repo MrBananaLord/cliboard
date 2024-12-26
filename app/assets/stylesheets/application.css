@@ -8,3 +8,83 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+input {
+  all: unset;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #000000;
+  color: rgb(0, 145, 0);
+  font-family: monospace;
+  height: 100vh;
+}
+
+#terminal {
+  display: block;
+  position: absolute;
+  top: 1em;
+  left: 1em;
+  right: 1em;
+  bottom: 1em;
+  border: 1px solid gray;
+  padding: 1em 1em 0.5em 1em;
+}
+
+h1 {
+  line-height: 4.6rem;
+}
+
+h2 {
+  line-height: 3.6rem;
+}
+
+h3 {
+  line-height: 2.8rem;
+}
+
+h4 {
+  line-height: 2.2rem;
+}
+
+h5 {
+  line-height: 1.8rem;
+}
+
+h6 {
+  line-height: 1.6rem;
+}
+
+p {
+  line-height: 1.6rem;
+}
+
+#messages {
+  display: block;
+  overflow-y: scroll;
+  height: calc(100% - 6rem);
+}
+
+#command {
+  display: flex;
+  padding: 0.25em 0;
+}
+
+#command form {
+  flex: 1;
+}
+
+#command input {
+  width: 100%;
+  margin-left: 0.5em;
+}
+
+.message {
+  white-space: pre-wrap;
+  margin-top: 0.25em;
+}

@@ -1,0 +1,13 @@
+<h2 style="margin-top: 0.5em;"><%= board.name %></h2>
+<h3>users</h3>
+<% if members.any? %>
+  <ul>
+    <% members.each do |member| %>
+      <li>
+        <%= member.name %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>  
+  <p> No users in this board. </p>
+<% end %>

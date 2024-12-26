@@ -1,0 +1,9 @@
+<turbo-frame id="terminal" data-controller="terminal">
+  <h1>cliboard</h1>
+  <turbo-frame id="messages">
+    <%= render partial: "message", collection: messages %>
+  </turbo-frame>
+
+  <%= render partial: "command" %>
+</turbo-frame>
+
