@@ -1,6 +1,16 @@
-<turbo-frame id="command">
+<turbo-frame id="command" data-controller="command">
   <span>></span>
   <form action="home" method="post">
-    <input type="text" name="command" autofocus autocomplete="off" />
+    <input 
+      type="text" 
+      name="command" 
+      autofocus 
+      autocomplete="off" 
+      data-action="
+        submit->command#submit
+        keydown.up->command#up
+        keydown.down->command#down
+      "
+    />
   </form>
 </turbo-frame>
