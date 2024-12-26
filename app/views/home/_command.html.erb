@@ -1,13 +1,16 @@
 <turbo-frame id="command" data-controller="command">
   <span>></span>
-  <form action="home" method="post">
+  <form 
+    action="home" 
+    method="post"
+    data-action="submit->command#submit"
+  >
     <input 
       type="text" 
       name="command" 
       autofocus 
       autocomplete="off" 
       data-action="
-        submit->command#submit
         keydown.up->command#up
         keydown.down->command#down
       "

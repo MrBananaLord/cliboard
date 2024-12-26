@@ -25,6 +25,10 @@ body {
   height: 100vh;
 }
 
+ul {
+  margin-left: 2em;
+}
+
 #terminal {
   display: block;
   position: absolute;

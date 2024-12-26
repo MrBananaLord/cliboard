@@ -10,6 +10,7 @@ class Command
     Commands::User::Ls,
     Commands::Contribution::Help,
     Commands::Contribution::Add,
+    Commands::Contribution::Remove,
     Commands::Unsupported
   ]
 

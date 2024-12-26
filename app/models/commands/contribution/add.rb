@@ -31,11 +31,15 @@ module Commands
 
           return if activity.nil?
 
-          ::Contribution.create(
+          content = @parts[3..-1].join(" ")
+
+          contribution = ::Contribution.create(
             user_id: @session[:user_id],
             activity_id: activity.id,
-            content: @parts[3]
+            content: content
           )
+          contribution.code = Digest::SHA256.hexdigest(contribution.id.to_s)
+          contribution.save
         end
       end
     end

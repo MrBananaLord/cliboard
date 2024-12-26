@@ -17,10 +17,11 @@
   <% activities.each.with_index do |activity, index| %>
     <h4>(<%= index + 1 %>) <%= activity.description %></h4>
     <% if activity.contributions.any? %>
-      <ul style="margin-left: 2em;">
+      <ul>
         <% activity.contributions.each do |contribution| %>
           <li>
-            <p><strong><%= contribution.user.name %></strong>:</p>
+            <p>[<%= contribution.code %>]</p>
+            <p><%= contribution.user.name %></p>
             <p><%= contribution.content %></p>
           </li>
         <% end %>

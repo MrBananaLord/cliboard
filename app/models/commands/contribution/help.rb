@@ -12,7 +12,8 @@ module Commands
 
       def message
         [
-          ::Commands::Contribution::Add
+          ::Commands::Contribution::Add,
+          ::Commands::Contribution::Remove
         ].map(&:readme).compact.join("<br />").html_safe
       end
     end
