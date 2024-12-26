@@ -6,12 +6,12 @@ module Commands
       end
 
       def self.readme
-        "board open [BOARD_ID] [PASSWORD]<br />" \
+        "board open [CODE] [PASSWORD]<br />" \
         "  Open a board"
       end
 
       def execute!
-        board = ::Board.find_by(id: @parts[2])
+        board = ::Board.find_by(code: @parts[2].upcase)
 
         if board&.authenticated?(@parts[3])
           @board = board
