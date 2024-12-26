@@ -23,10 +23,11 @@ module Commands
           @session[:user_name] = @parts[2]
 
           if @session[:board_id].present?
-            ::User.find_or_create_by(
+            user = ::User.find_or_create_by(
               board_id: @session[:board_id],
               name: @session[:user_name]
             )
+            @session[:user_id] = user.id
           end
         end
       end

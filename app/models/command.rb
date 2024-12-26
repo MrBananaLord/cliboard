@@ -8,6 +8,8 @@ class Command
     Commands::User::Help,
     Commands::User::Set,
     Commands::User::Ls,
+    Commands::Contribution::Help,
+    Commands::Contribution::Add,
     Commands::Unsupported
   ]
 

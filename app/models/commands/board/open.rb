@@ -7,7 +7,7 @@ module Commands
 
       def self.readme
         "board open [CODE] [PASSWORD]<br />" \
-        "  Open a board"
+        "  Load a board"
       end
 
       def execute!
@@ -18,10 +18,11 @@ module Commands
           @session[:board_id] = board.id
 
           if @session[:user_name].present?
-            ::User.find_or_create_by(
+            user = ::User.find_or_create_by(
               board_id: @session[:board_id],
               name: @session[:user_name]
             )
+            @session[:user_id] = user.id
           end
         else
           @board = nil
@@ -35,7 +36,7 @@ module Commands
 
       def message
         if @board.present?
-          "Board \"#{@board.name}\" opened"
+          "Board \"#{@board.name}\" loaded"
         else
           "Board not found or password incorrect"
         end

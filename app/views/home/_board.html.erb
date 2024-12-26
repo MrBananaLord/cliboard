@@ -1,13 +1,32 @@
-<h2 style="margin-top: 0.5em;"><%= board.name %></h2>
-<h3>users</h3>
-<% if members.any? %>
-  <ul>
-    <% members.each do |member| %>
-      <li>
-        <%= member.name %>
-      </li>
+<div data-controller="message">
+  <h2 style="margin-top: 0.5em;"><%= board.name %></h2>
+  <h3>Users</h3>
+  <% if members.any? %>
+    <ul>
+      <% members.each do |member| %>
+        <li>
+          <%= member.name %>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>  
+    <p> No users in this board. </p>
+  <% end %>
+
+  <h3>Activities</h3>
+  <% activities.each.with_index do |activity, index| %>
+    <h4>(<%= index + 1 %>) <%= activity.description %></h4>
+    <% if activity.contributions.any? %>
+      <ul style="margin-left: 2em;">
+        <% activity.contributions.each do |contribution| %>
+          <li>
+            <p><strong><%= contribution.user.name %></strong>:</p>
+            <p><%= contribution.content %></p>
+          </li>
+        <% end %>
+      </ul>
+    <% else %>
+      <p> No contributions yet. </p>
     <% end %>
-  </ul>
-<% else %>  
-  <p> No users in this board. </p>
-<% end %>
+  <% end %>
+</div>

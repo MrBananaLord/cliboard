@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_12_26_095440) do
+ActiveRecord::Schema[8.0].define(version: 2024_12_26_104559) do
+  create_table "activities", force: :cascade do |t|
+    t.integer "board_id", null: false
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["board_id"], name: "index_activities_on_board_id"
+  end
+
   create_table "boards", force: :cascade do |t|
     t.string "name"
     t.string "password"
@@ -18,6 +26,18 @@ ActiveRecord::Schema[8.0].define(version: 2024_12_26_095440) do
     t.datetime "updated_at", null: false
     t.string "code"
     t.index ["code"], name: "index_boards_on_code", unique: true
+  end
+
+  create_table "contributions", force: :cascade do |t|
+    t.integer "activity_id", null: false
+    t.integer "user_id", null: false
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "code"
+    t.index ["activity_id"], name: "index_contributions_on_activity_id"
+    t.index ["code"], name: "index_contributions_on_code", unique: true
+    t.index ["user_id"], name: "index_contributions_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -28,5 +48,8 @@ ActiveRecord::Schema[8.0].define(version: 2024_12_26_095440) do
     t.index ["board_id"], name: "index_users_on_board_id"
   end
 
+  add_foreign_key "activities", "boards"
+  add_foreign_key "contributions", "activities"
+  add_foreign_key "contributions", "users"
   add_foreign_key "users", "boards"
 end

@@ -25,7 +25,8 @@ module Commands
 
         {
           board: @board,
-          members: @board.users
+          members: @board.users,
+          activities: @board.activities.preload(:contributions)
         }
       end
 
