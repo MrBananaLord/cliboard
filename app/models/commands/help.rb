@@ -14,6 +14,7 @@ module Commands
         ::Commands::User::Help,
         ::Commands::Contribution::Help,
         ::Commands::Activity::Help,
+        ::Commands::Reaction::Help,
         ::Commands::Clear
       ].map(&:readme).compact.join("<br />").html_safe
     end

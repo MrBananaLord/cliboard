@@ -12,6 +12,9 @@ class Command
     Commands::Contribution::Help,
     Commands::Contribution::Add,
     Commands::Contribution::Remove,
+    Commands::Reaction::Help,
+    Commands::Reaction::Add,
+    Commands::Reaction::Remove,
     Commands::Activity::Help,
     Commands::Activity::Ls,
     Commands::Unsupported

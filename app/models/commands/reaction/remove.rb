@@ -1,21 +1,21 @@
 module Commands
-  module Contribution
+  module Reaction
     class Remove < Unsupported
       def self.match?(parts, session)
-        parts[0] == "contribution" && parts[1] == "remove"
+        parts[0] == "reaction" && parts[1] == "remove"
       end
 
       def self.readme
-        "contribution remove [CONTRIBUTION SHA]<br />" \
-        "  Remove your contribution"
+        "reaction remove [REACTION ID]<br />" \
+        "  Remove your reaction"
       end
 
       def message
         return "Board not loaded" if @session[:board_id].blank?
         return "User not set" if @session[:user_id].blank?
-        return "Contribution removed" if @contribution&.destroyed?
+        return "Reaction removed" if @reaction&.destroyed?
 
-        "Cannot remove contribution"
+        "Cannot remove reaction"
       end
 
       def execute!
@@ -23,11 +23,11 @@ module Commands
         return if @session[:user_id].blank?
 
         if @parts[2].present?
-          @contribution = ::Contribution.find_by(code: @parts[2])
+          @reaction = ::Reaction.find_by(id: @parts[2])
 
-          return if @contribution.nil? || @contribution.user_id != @session[:user_id]
+          return if @reaction.nil? || @reaction.user_id != @session[:user_id]
 
-          @contribution.destroy
+          @reaction.destroy
         end
       end
     end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_12_26_104559) do
+ActiveRecord::Schema[8.0].define(version: 2024_12_28_200236) do
   create_table "activities", force: :cascade do |t|
     t.integer "board_id", null: false
     t.text "description"
@@ -40,6 +40,16 @@ ActiveRecord::Schema[8.0].define(version: 2024_12_26_104559) do
     t.index ["user_id"], name: "index_contributions_on_user_id"
   end
 
+  create_table "reactions", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "contribution_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "text"
+    t.index ["contribution_id"], name: "index_reactions_on_contribution_id"
+    t.index ["user_id"], name: "index_reactions_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.integer "board_id", null: false
     t.string "name"
@@ -51,5 +61,7 @@ ActiveRecord::Schema[8.0].define(version: 2024_12_26_104559) do
   add_foreign_key "activities", "boards"
   add_foreign_key "contributions", "activities"
   add_foreign_key "contributions", "users"
+  add_foreign_key "reactions", "contributions"
+  add_foreign_key "reactions", "users"
   add_foreign_key "users", "boards"
 end
