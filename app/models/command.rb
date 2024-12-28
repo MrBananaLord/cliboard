@@ -4,6 +4,7 @@ class Command
     Commands::Help,
     Commands::Board::Help,
     Commands::Board::Open,
+    Commands::Board::Create,
     Commands::Board::Ls,
     Commands::User::Help,
     Commands::User::Set,

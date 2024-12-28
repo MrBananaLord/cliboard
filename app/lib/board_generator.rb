@@ -1,9 +1,10 @@
 class BoardGenerator
-  def self.generate(password)
+  def self.generate(name:, password:)
     raise "Password missing" if password.blank?
+    raise "Name missing" if name.blank?
 
     board = Board.create(
-      name: "Board #{Date.today}",
+      name: name,
       code: SecureRandom.alphanumeric(6).upcase,
       password: password
     )

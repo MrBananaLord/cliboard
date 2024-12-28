@@ -13,6 +13,7 @@ module Commands
       def message
         [
           ::Commands::Board::Open,
+          ::Commands::Board::Create,
           ::Commands::Board::Ls
         ].map(&:readme).compact.join("<br />").html_safe
       end
