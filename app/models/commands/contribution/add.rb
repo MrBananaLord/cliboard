@@ -38,6 +38,7 @@ module Commands
             activity_id: activity.id,
             content: content
           )
+
           contribution.code = Digest::SHA256.hexdigest(contribution.id.to_s)
           contribution.save
         end

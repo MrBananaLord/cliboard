@@ -14,20 +14,8 @@
   <% end %>
 
   <h3>Activities</h3>
+  
   <% activities.each.with_index do |activity, index| %>
-    <h4>(<%= index + 1 %>) <%= activity.description %></h4>
-    <% if activity.contributions.any? %>
-      <ul>
-        <% activity.contributions.each do |contribution| %>
-          <li>
-            <p>[<%= contribution.code %>]</p>
-            <p><%= contribution.user.name %></p>
-            <p><%= contribution.content %></p>
-          </li>
-        <% end %>
-      </ul>
-    <% else %>
-      <p> No contributions yet. </p>
-    <% end %>
+    <%= render partial: "home/activity", locals: { activity: activity, index: index } %>
   <% end %>
 </div>

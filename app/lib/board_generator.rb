@@ -12,9 +12,10 @@ class BoardGenerator
     board.activities.create(description: "Past commitments")
     board.activities.create(description: "What went well?")
     board.activities.create(description: "What went wrong?")
+    board.activities.create(description: "Discussion topics")
     board.activities.create(description: "Actions")
     board.activities.create(description: "What are you learning?")
-    board.activities.create(description: "How are you?")
+    board.activities.create(description: "How are you feeling?")
 
     board
   end
