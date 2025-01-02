@@ -12,7 +12,7 @@ module Commands
       end
 
       def execute!
-        return if @parts[2] != Rails.application.credentials.admin_password
+        return if @parts[2] != ENV["ADMIN_PASSWORD"]
 
         @board = BoardGenerator.generate(
           password: @parts[3],
