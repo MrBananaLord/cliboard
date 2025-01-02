@@ -1,6 +1,6 @@
 databases:
-  - name: cliboard
-    databaseName: cliboard
+  - name: cliboard_production
+    databaseName: cliboard_production
     user: cliboard
     plan: free
 
@@ -13,9 +13,9 @@ services:
     # preDeployCommand: "bundle exec rails db:migrate" # preDeployCommand only available on paid instance types
     startCommand: "bundle exec rails server"
     envVars:
-      - key: DATABASE_URL
+      - key: CLIBOARD_DATABASE_URL
         fromDatabase:
-          name: cliboard
+          name: cliboard_production
           property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false

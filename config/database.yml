@@ -82,6 +82,7 @@ production:
     <<: *default
     database: cliboard_production
     username: cliboard
+    url: <%= ENV["CLIBOARD_DATABASE_URL"] %>
     password: <%= ENV["CLIBOARD_DATABASE_PASSWORD"] %>
   cache:
     <<: *primary_production
